@@ -15,6 +15,8 @@ import {MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { BarRatingModule } from 'ngx-bar-rating';
+import {MatListModule} from '@angular/material/list';
+
 // NG Translate
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -28,6 +30,9 @@ import { HomeComponent } from './components/home/home.component';
 import { SetPeerComponent } from './components/set-peer/set-peer.component';
 import { ReviewFormComponent } from './components/review-form/review-form.component';
 import { Peer2PeerService } from './providers/peer2peer.service';
+import { ReviewListComponent } from './components/review-list/review-list.component';
+import { ReviewDetailComponent } from './components/review-detail/review-detail.component';
+import { AddReviewComponent } from './components/add-review/add-review.component';
 
 
 // AoT requires an exported function for factories
@@ -41,7 +46,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     SetPeerComponent,
     ReviewFormComponent,
-    WebviewDirective
+    WebviewDirective,
+    ReviewListComponent,
+    ReviewDetailComponent,
+    AddReviewComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +67,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatInputModule,
     MatFormFieldModule,
     BarRatingModule,
-    MatButtonModule
+    MatButtonModule,
+    MatListModule
   ],
   providers: [
     ElectronService,
