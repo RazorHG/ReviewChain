@@ -8,6 +8,7 @@
 /release
 main.js
 src/**/*.js
+!src/blockchain/**/*.js
 *.js.map
 
 # dependencies
