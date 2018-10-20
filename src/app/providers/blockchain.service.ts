@@ -14,7 +14,7 @@ export class BlockChainService {
   parseReviewsFromBlockChain() {
       this.peer2peerService.getBlockChain().subscribe((blockChain) => {
         const reviews = blockChain.blockchain.map((block) => block.data, []);
-        this.reviews.next(reviews);
+        this.reviews.next(reviews.slice(1));
       });
   }
   getReviewObservable() {
