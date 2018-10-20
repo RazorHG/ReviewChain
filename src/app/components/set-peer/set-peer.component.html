@@ -1,0 +1,15 @@
+<div class="example-form">
+    <mat-form-field class="example-full-width">
+        <input [(ngModel)]="userName" matInput placeholder="Set User Name" value="John Doe">
+        <button mat-raised-button (click)="setUserName()" color="primary">Set UserName</button>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input [(ngModel)]="peer" matInput placeholder="Add Peer"/>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input [(ngModel)]="port" matInput placeholder="Specify Port (Optional)"/>
+    </mat-form-field>
+    <button mat-raised-button (click)="discoverPeer()" color="primary">Discover Peer</button>
+    <button  routerLink="/"  mat-raised-button color="secondary">Back To Review List</button>
+</div>

@@ -35,6 +35,7 @@ import { ReviewDetailComponent } from './components/review-detail/review-detail.
 import { AddReviewComponent } from './components/add-review/add-review.component';
 import { BlockChainService } from './providers/blockchain.service';
 import { MovieSelectionComponent } from './components/movie-selection/movie-selection.component';
+import { UserService } from './providers/user.service';
 
 
 // AoT requires an exported function for factories
@@ -76,7 +77,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     ElectronService,
     Peer2PeerService,
-    BlockChainService
+    BlockChainService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

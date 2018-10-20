@@ -3,5 +3,6 @@
   <bar-rating [(rate)]="review.rating" [max]="4" [theme]="'movie'" [showText]="true" [readOnly]="true"
   [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"
  ></bar-rating>
+ <p>Reviewed by {{review.userName}}</p>
  <p>{{ review.textReview}}</p>
 </div>

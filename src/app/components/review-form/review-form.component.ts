@@ -4,6 +4,7 @@ import { IMovie } from '../../models/movie.model';
 import { Review } from '../../models/review.model';
 import { BlockChainService } from '../../providers/blockchain.service';
 import { Router } from '@angular/router';
+import { UserService } from '../../providers/user.service';
 
 @Component({
   selector: 'app-review-form',
@@ -12,14 +13,17 @@ import { Router } from '@angular/router';
 })
 export class ReviewFormComponent implements OnInit {
   @Input() movie: IMovie = {id: 1, name: 'Test Movie'};
-  @Input() user: string;
+  user: string;
   message = '';
   movieRating = 4;
   constructor(private peer2peerService: Peer2PeerService,
      private blockchainService: BlockChainService,
-     private router: Router) { }
+     private router: Router,
+     private userService: UserService
+    ) { }
 
   ngOnInit() {
+    this.user = this.userService.userName;
   }
   sendMessage() {
     const review: Review = new Review(this.user, this.movieRating, this.movie.id, this.message);
