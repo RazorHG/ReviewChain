@@ -1,6 +1,6 @@
 <div class="container">
-  <app-review-list class="sidebar-left"></app-review-list>
-  <app-review-detail class="body"></app-review-detail>
+  <app-review-list (selectReview)="setReviewDetail($event)" class="sidebar-left"></app-review-list>
+  <app-review-detail class="body" [review]="selectedReview"></app-review-detail>
   <div class="actions-footer">
     <button  routerLink="/addreview"  mat-raised-button color="primary">Create Review</button>
   </div>

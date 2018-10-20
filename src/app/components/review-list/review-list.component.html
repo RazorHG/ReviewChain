@@ -1,5 +1,5 @@
 <div class="container">
   <mat-list>
-    <mat-list-item *ngFor="let review of reviews"> {{ review.movieId }} {{ review.rating }} </mat-list-item>
+    <mat-list-item (click)="selectedReview(review)" *ngFor="let review of reviews"> {{ review.movieId }} {{ review.rating }} </mat-list-item>
   </mat-list>
 </div>

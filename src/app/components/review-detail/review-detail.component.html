@@ -1,3 +1,7 @@
-<p>
-  review-detail works!
-</p>
+<div>
+  <h1>{{ review.movieId}}</h1>
+  <bar-rating [(rate)]="review.rating" [max]="4" [theme]="'movie'" [showText]="true" [readOnly]="true"
+  [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"
+ ></bar-rating>
+ <p>{{ review.textReview}}</p>
+</div>

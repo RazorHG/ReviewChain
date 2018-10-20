@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { Review } from '../../models/review.model';
 import { BlockChainService } from '../../providers/blockchain.service';
 import { Subscription } from 'rxjs';
@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./review-list.component.scss']
 })
 export class ReviewListComponent implements OnInit, OnDestroy {
+  @Output() selectReview: EventEmitter<Review> = new EventEmitter<Review>();
   reviews: Review[] = [];
   reviewsSubscription: Subscription;
   constructor(private blockchainService: BlockChainService) { }
@@ -16,10 +17,14 @@ export class ReviewListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.reviewsSubscription = this.blockchainService.getReviewObservable().subscribe((reviews) => {
       this.reviews = reviews;
+      this.selectReview.emit(this.reviews[1]);
     });
   }
   ngOnDestroy() {
     this.reviewsSubscription.unsubscribe();
+  }
+  selectedReview (review: Review) {
+    this.selectReview.emit(review);
   }
 
 }

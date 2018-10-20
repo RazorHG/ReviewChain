@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Review } from '../../models/review.model';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  selectedReview: Review;
+  constructor(private cref: ChangeDetectorRef) { }
 
   ngOnInit() {
   }
-
+  setReviewDetail(review: Review) {
+    this.selectedReview = {...review};
+    this.cref.detectChanges();
+  }
 }
