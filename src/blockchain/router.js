@@ -21,13 +21,12 @@ router.post('/nodes/connect', (req, res)=>{
   let {host, port} = req.body;
   if(!host || !port) return res.sendStatus(500);
  try {
-    p2p.connectToPeer(args.host, args.port);
+    p2p.connectToPeer(host, port);
     p2p.discoverPeers();
-    res.json(nodes);
+    res.json(p2p.peers);
  } catch(err){
      res.json(err)
  }
- res.json(p2p.peers)
 })
 
 router.get('/nodes', (req, res)=>{
