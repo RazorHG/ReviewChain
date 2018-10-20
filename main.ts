@@ -1,6 +1,8 @@
 import { app, BrowserWindow, screen } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
+import { fork } from 'child_process';
+
 
 let win, serve;
 const args = process.argv.slice(1);
@@ -16,9 +18,10 @@ function createWindow() {
     x: 0,
     y: 0,
     width: size.width,
-    height: size.height
+    height: size.height,
+    webPreferences: {webSecurity: false}
   });
-
+  const forked = fork('src/blockchain/server.js');
   if (serve) {
     require('electron-reload')(__dirname, {
       electron: require(`${__dirname}/node_modules/electron`)
@@ -36,6 +39,7 @@ function createWindow() {
 
   // Emitted when the window is closed.
   win.on('closed', () => {
+    forked.kill();
     // Dereference the window object, usually you would store window
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.

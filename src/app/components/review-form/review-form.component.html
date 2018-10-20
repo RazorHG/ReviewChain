@@ -1,0 +1,14 @@
+<div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Input">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <textarea [(ngModel)]="message" matInput placeholder="Textarea"></textarea>
+    </mat-form-field>
+    <bar-rating [(rate)]="rate" [max]="4" [theme]="'movie'" [showText]="true"
+      [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"
+      [(ngModel)]="movieRating"  
+     ></bar-rating>
+    <button mat-raised-button (click)="sendMessage()" color="primary">Primary</button>
+  </div>
