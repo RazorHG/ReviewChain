@@ -26,7 +26,7 @@ export class ReviewFormComponent implements OnInit {
     this.user = this.userService.userName;
   }
   sendMessage() {
-    const review: Review = new Review(this.user, this.movieRating, this.movie.id, this.message);
+    const review: Review = new Review(this.user, this.movieRating, this.movie.id, this.message, this.movie.name);
     this.peer2peerService.addReview(review).subscribe(() => {
       this.blockchainService.parseReviewsFromBlockChain();
       this.router.navigate(['/']);

@@ -3,6 +3,7 @@ export interface IReview {
     rating: number;
     movieId: number;
     textReview: string;
+    movieName: string;
 }
 
 export class Review implements IReview {
@@ -10,6 +11,7 @@ export class Review implements IReview {
         public userName,
         public rating,
         public movieId,
-        public textReview
+        public textReview,
+        public movieName
     ) {}
 }

@@ -8,7 +8,7 @@ import { MovieService } from '../../providers/movie.service';
   styleUrls: ['./review-detail.component.scss']
 })
 export class ReviewDetailComponent implements OnInit, OnChanges {
-  @Input() review: Review = new Review('John Doe', 4, 1, 'Good Movie. Would watch again');
+  @Input() review: Review = new Review('John Doe', 4, 1, 'Good Movie. Would watch again', 'Test Hard');
   movieDetails: any;
   constructor(private movieService: MovieService) { }
 
