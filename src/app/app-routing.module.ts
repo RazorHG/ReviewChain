@@ -6,16 +6,16 @@ import { SetPeerComponent } from './components/set-peer/set-peer.component';
 
 const routes: Routes = [
     {
-        path: '',
-        component: HomeComponent
-    },
-    {
         path: 'addreview',
         component: AddReviewComponent
     },
     {
         path: 'settings',
         component: SetPeerComponent
+    },
+    {
+        path: '',
+        component: HomeComponent
     }
 ];
 

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Peer2PeerService } from '../../providers/peer2peer.service';
 import { IMovie } from '../../models/movie.model';
 import { Review } from '../../models/review.model';
+import { BlockChainService } from '../../providers/blockchain.service';
 
 @Component({
   selector: 'app-review-form',
@@ -13,12 +14,14 @@ export class ReviewFormComponent implements OnInit {
   @Input() user: string;
   message = '';
   movieRating = 4;
-  constructor(private peer2peerService: Peer2PeerService) { }
+  constructor(private peer2peerService: Peer2PeerService, private blockchainService: BlockChainService) { }
 
   ngOnInit() {
   }
   sendMessage() {
     const review: Review = new Review(this.user, this.movieRating, this.movie.id, this.message);
-    this.peer2peerService.addReview(review).subscribe();
+    this.peer2peerService.addReview(review).subscribe(() => {
+      this.blockchainService.parseReviewsFromBlockChain();
+    });
   }
 }

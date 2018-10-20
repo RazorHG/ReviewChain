@@ -33,6 +33,8 @@ import { Peer2PeerService } from './providers/peer2peer.service';
 import { ReviewListComponent } from './components/review-list/review-list.component';
 import { ReviewDetailComponent } from './components/review-detail/review-detail.component';
 import { AddReviewComponent } from './components/add-review/add-review.component';
+import { BlockChainService } from './providers/blockchain.service';
+import { MovieSelectionComponent } from './components/movie-selection/movie-selection.component';
 
 
 // AoT requires an exported function for factories
@@ -49,7 +51,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     WebviewDirective,
     ReviewListComponent,
     ReviewDetailComponent,
-    AddReviewComponent
+    AddReviewComponent,
+    MovieSelectionComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     ElectronService,
-    Peer2PeerService
+    Peer2PeerService,
+    BlockChainService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,10 +1,12 @@
-<div class="example-container">
-    <mat-form-field>
-      <textarea [(ngModel)]="message" matInput placeholder="Textarea"></textarea>
-    </mat-form-field>
+<div class="container">
+  <h1> Review for: {{movie.name}}</h1>
     <bar-rating [(rate)]="rate" [max]="4" [theme]="'movie'" [showText]="true"
-      [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"
-      [(ngModel)]="movieRating"  
-     ></bar-rating>
-    <button mat-raised-button (click)="sendMessage()" color="primary">Primary</button>
+    [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"
+    [(ngModel)]="movieRating"  
+   ></bar-rating>
+    <mat-form-field>
+      <textarea cdkTextareaAutosize cdkAutosizeMinRows="10" [(ngModel)]="message" matInput placeholder="Review"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button (click)="sendMessage()" color="primary">Create Review</button>
   </div>

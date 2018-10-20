@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { IBlockChain } from '../models/blockchain.model';
 
 
 @Injectable()
@@ -16,7 +17,7 @@ export class Peer2PeerService {
     return this.http.post(`${this.baseUrl}mine`, review);
   }
   getBlockChain() {
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get<IBlockChain>(`${this.baseUrl}`);
   }
 
   getPeers() {
