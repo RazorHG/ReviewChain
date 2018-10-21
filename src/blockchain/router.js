@@ -2,7 +2,8 @@ const P2p = require("./lib/P2p.js");
 const Blockchain = require("./lib/Blockchain.js");
 const blockchain = new Blockchain();
 const p2p = new P2p(blockchain);
-p2p.startServer(3001);
+let port = process.argv[3] || 3001;
+p2p.startServer(port);
 const router = require('express').Router();
 
 router.get('/', (req, res)=>{

@@ -1,8 +1,13 @@
 <div>
-  <h1>{{ review.movieName}}</h1>
-  <bar-rating [(rate)]="review.rating" [max]="4" [theme]="'movie'" [showText]="true" [readOnly]="true"
+  <h1>{{ review.data.movieName}}</h1>
+  <bar-rating [(rate)]="review.data.rating" [max]="4" [theme]="'movie'" [showText]="true" [readOnly]="true"
   [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"
  ></bar-rating>
- <p>Reviewed by {{review.userName}}</p>
- <p>{{ review.textReview}}</p>
+ <p>Reviewed by {{review.data.userName}}</p>
+ <p>{{ review.data.textReview}}</p>
+ <p>{{ review.hash}}</p>
+ <p>{{ review.previousHash}}</p>
+ <p>{{ review.timestamp}}</p>
+ <p>{{ review.nonce}}</p>
+
 </div>
