@@ -4,12 +4,15 @@
         <input [(ngModel)]="movieSearch" matInput placeholder="Enter Name of Movie">
         
     </mat-form-field>
-    <button mat-raised-button (click)="searchMovies()" color="primary">Search for movies</button>
+    <button mat-raised-button (click)="searchMovies()" color="primary">Search for Movies</button>
   </div>
   <div class="movie-results">
       <mat-list>
           <mat-list-item  (click)="createReview(movie)"  *ngFor="let movie of movieResults">
-              <div>{{movie.OriginalTitle}}</div>
+              <img matListAvatar *ngIf="movie.PosterPath" src="{{'http://image.tmdb.org/t/p/w185/' + movie.PosterPath}}"  />
+              <img matListAvatar *ngIf="!movie.PosterPath" src="assets/Movie-clipart-black-and-white.jpg"  />
+              <div >{{movie.OriginalTitle}}</div>
+              <div>{{movie.ReleaseDate | date:'shortDate'}}</div>
             </mat-list-item>
       </mat-list>
     

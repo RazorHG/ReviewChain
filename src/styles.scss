@@ -2,9 +2,15 @@
 html, body {
   margin: 0;
   padding: 0;
-
+  background-image: url("assets/movie-selection-background.jpg");
+  background-size: cover;
   height: 100%;
 }
+.actions-footer{
+  background: rgba(179, 244, 255, 0.6);
+  padding: 10px;
+}
+
 @import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 @import '../node_modules/ngx-bar-rating/themes/br-movie-theme.css';
 @import '../node_modules/ngx-bar-rating/themes/br-stars-theme.css';

@@ -16,6 +16,10 @@
       button{
         font-size: 35px;
         padding: 5px 20px;
+       
+      }
+      button:first-child{
+          margin-right: 10px;
       }
     }
   
