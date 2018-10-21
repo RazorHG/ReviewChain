@@ -17,6 +17,13 @@
     .mat-list-item{
         padding-top: 5px;
         border-bottom: 1px solid black;
+        cursor: pointer;
+    }
+    .mat-list-item:hover{
+        background-color: azure;
+        div{
+            font-weight: bold;
+        }
     }
    
 }

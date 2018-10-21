@@ -3,7 +3,7 @@
   <h1> Review for: {{movie.OriginalTitle}}</h1>
   <h2>Release Date: {{ movie.ReleaseDate | date}}</h2>
   <p>{{ movie.OverView}}</p>
-    <bar-rating [(rate)]="rate" [max]="4" [theme]="'movie'" [showText]="true"
+    <bar-rating [(rate)]="rate" [max]="4" [theme]="'stars'" [showText]="false"
     [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"
     [(ngModel)]="movieRating"  
    ></bar-rating>
