@@ -1,4 +1,5 @@
 <div>
+    <img src="{{'http://image.tmdb.org/t/p/w185/' + movieDetails.PosterPath}}"  />
   <h1>{{ review.data.movieName}}</h1>
   <bar-rating [(rate)]="review.data.rating" [max]="4" [theme]="'movie'" [showText]="true" [readOnly]="true"
   [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"

@@ -2,8 +2,9 @@
   <div class="movie-input">
     <mat-form-field >
         <input [(ngModel)]="movieSearch" matInput placeholder="Enter Name of Movie">
-        <button mat-raised-button (click)="searchMovies()" color="primary">Search for movies</button>
+        
     </mat-form-field>
+    <button mat-raised-button (click)="searchMovies()" color="primary">Search for movies</button>
   </div>
   <div class="movie-results">
     <mat-list-item (click)="createReview(movie)" *ngFor="let movie of movieResults">

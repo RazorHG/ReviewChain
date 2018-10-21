@@ -1,4 +1,5 @@
 <div class="container" *ngIf="movie">
+    <img src="{{'http://image.tmdb.org/t/p/w185/' + movie.PosterPath}}"  />
   <h1> Review for: {{movie.OriginalTitle}}</h1>
   <h2>Release Date: {{ movie.ReleaseDate | date}}</h2>
   <p>{{ movie.OverView}}</p>
