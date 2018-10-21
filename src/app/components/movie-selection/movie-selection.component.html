@@ -1,4 +1,4 @@
-<div>
+<div class="container">
   <div class="movie-input">
     <mat-form-field >
         <input [(ngModel)]="movieSearch" matInput placeholder="Enter Name of Movie">
@@ -7,8 +7,12 @@
     <button mat-raised-button (click)="searchMovies()" color="primary">Search for movies</button>
   </div>
   <div class="movie-results">
-    <mat-list-item (click)="createReview(movie)" *ngFor="let movie of movieResults">
+    <mat-list-item  (click)="createReview(movie)"  *ngFor="let movie of movieResults">
       <div>{{movie.OriginalTitle}}</div>
     </mat-list-item>
+  </div>
+  <div class="actions-footer">
+      <button class="footer"  routerLink="/"  mat-raised-button color="secondary">Back To Review List</button>
+      
   </div>
 </div>

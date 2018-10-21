@@ -6,7 +6,7 @@ import { IMovie } from '../models/movie.model';
 @Injectable()
 export class MovieService {
    baseUrl =  'http://172.22.5.88:8020/api/movie/';
-
+   selectedMovie: IMovie;
   constructor(private http: HttpClient) {
   }
 

@@ -1,8 +1,7 @@
 <div class="container">
-  <app-movie-selection (movieSelectedEvent)=selectMovie($event)></app-movie-selection>
   <app-review-form [movie]="selectedMovie"></app-review-form>
   <div class="actions-footer">
       <button class="footer"  routerLink="/"  mat-raised-button color="secondary">Back To Review List</button>
-
+      <button class="footer"  routerLink="/searchmovies"  mat-raised-button color="secondary">Search Movies</button>
   </div>
 </div>

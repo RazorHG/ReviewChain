@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MovieService } from '../../providers/movie.service';
 import { IMovie } from '../../models/movie.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-selection',
@@ -8,10 +9,9 @@ import { IMovie } from '../../models/movie.model';
   styleUrls: ['./movie-selection.component.scss']
 })
 export class MovieSelectionComponent implements OnInit {
-  @Output() movieSelectedEvent: EventEmitter<IMovie> = new EventEmitter<IMovie>();
   movieSearch: string;
   movieResults: IMovie[];
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,6 +21,7 @@ export class MovieSelectionComponent implements OnInit {
     });
   }
   createReview(movie: IMovie) {
-    this.movieSelectedEvent.emit(movie);
+    this.movieService.selectedMovie = movie;
+    this.router.navigate(['/addreview']);
   }
 }
