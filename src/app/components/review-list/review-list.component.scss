@@ -3,8 +3,11 @@
     mat-list{
         height: 100%;
         overflow-y: auto;
-        mat-list-item-content{
-            display: block;
-        }
+
     }
+    .mat-list-item{
+        padding-top: 5px;
+        border-bottom: 1px solid black;
+    }
+   
 }

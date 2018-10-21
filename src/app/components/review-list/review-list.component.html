@@ -1,8 +1,11 @@
 <div class="container">
+  <h3>Recent Reviews</h3>
   <mat-list>
     <mat-list-item (click)="selectedReview(review)" *ngFor="let review of reviews">
-      <div>{{review.data.movieName}}</div>
-      <bar-rating [(rate)]="review.data.rating " [max]="4" [theme]="'stars'" [readOnly]="true"></bar-rating>
+
+          <div mat-line>{{review.data.movieName}}</div>
+          <bar-rating mat-line [(rate)]="review.data.rating " [max]="4" [theme]="'stars'" [readOnly]="true"></bar-rating>
+      
     </mat-list-item>
   </mat-list>
 </div>

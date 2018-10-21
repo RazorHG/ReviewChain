@@ -18,7 +18,9 @@ export class ReviewListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.blockchainService.parseReviewsFromBlockChain();
     this.reviewsSubscription = this.blockchainService.getReviewObservable().subscribe((reviews) => {
-      this.reviews = reviews;
+      this.reviews = reviews.sort((reviewA, reviewB) => {
+        return reviewA.timestamp < reviewB.timestamp ? 1 : -1;
+      });
       this.selectReview.emit(this.reviews[0]);
     });
   }
