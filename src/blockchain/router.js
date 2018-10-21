@@ -23,7 +23,6 @@ router.post('/nodes/connect', (req, res)=>{
   if(!host || !port) return res.sendStatus(500);
  try {
     p2p.connectToPeer(host, port);
-    p2p.discoverPeers();
     res.json(p2p.peers);
  } catch(err){
      res.json(err)

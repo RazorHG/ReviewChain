@@ -36,7 +36,7 @@ class PeerToPeer {
   discoverPeers() {
     p2p.getNewPeer((err, conn) => {
       if (err) {
-        throw err;
+    
       } else {
         this.initConnection.call(this, conn);
       }
