@@ -1,4 +1,14 @@
 .container{
     background: rgba(179, 244, 255, 0.6);
     padding: 10px;
+    .text-container{
+        padding: 10px;
+        background: rgba(179, 244, 255, 1);
+        label{
+            font-weight: bold;
+        }
+        .verify-label{
+            color: green;
+        }
+    }
 }

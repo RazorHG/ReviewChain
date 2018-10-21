@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Review } from '../models/review.model';
+import * as crypto from 'crypto';
 import { IBlockChain, IBlock } from '../models/blockchain.model';
 import { Peer2PeerService } from './peer2peer.service';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
@@ -21,5 +21,11 @@ export class BlockChainService {
       return this.reviews;
   }
 
-
+  verifyHash (testHash: string, block: IBlock) {
+    const calculatedHash = crypto
+                            .createHash('sha256')
+                            .update(block.index + block.previousHash + block.timestamp + block.data + block.nonce)
+                            .digest('hex');
+    return testHash === calculatedHash;
+  }
 }

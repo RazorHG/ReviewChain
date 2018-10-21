@@ -1,19 +1,22 @@
-<div class="container">
+<div class="container" *ngIf="review">
     <img src="{{'http://image.tmdb.org/t/p/w185/' + movieDetails.PosterPath}}"  />
   <h1>{{ review.data.movieName}}</h1>
   <bar-rating [(rate)]="review.data.rating" [max]="4" [theme]="'stars'" [showText]="false" [readOnly]="true"
   [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"
  ></bar-rating>
- <p>Reviewed by {{review.data.userName}}</p>
- <p>Review Date: {{ review.timestamp | date}}</p>
- <div>
-   <h2>Review:</h2>
-    <p>{{ review.data.textReview}}</p>
+ <div class="text-container">
+    <p>Reviewed by {{review.data.userName}}</p>
+    <p>Review Date: {{ review.timestamp | date}}</p>
+    <div>
+      <h2>Review:</h2>
+       <p>{{ review.data.textReview}}</p>
+    </div>
+   
+    <p><label>Hash:</label> {{ review.hash}}  <label class="verify-label" *ngIf="verified">Verified!</label> </p>
+    <p><label>Previous Hash:</label> {{ review.previousHash}}</p>
+    
+    <p><label>Nounce:</label> {{ review.nonce}}</p>
  </div>
 
- <p>Hash: {{ review.hash}}</p>
- <p>Previous Hash: {{ review.previousHash}}</p>
- 
- <p>nounce: {{ review.nonce}}</p>
 
 </div>
