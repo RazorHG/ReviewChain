@@ -1,5 +1,7 @@
-<div class="container">
-  <h1> Review for: {{movie.name}}</h1>
+<div class="container" *ngIf="movie">
+  <h1> Review for: {{movie.OriginalTitle}}</h1>
+  <h2>Release Date: {{ movie.ReleaseDate | date}}</h2>
+  <p>{{ movie.OverView}}</p>
     <bar-rating [(rate)]="rate" [max]="4" [theme]="'movie'" [showText]="true"
     [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"
     [(ngModel)]="movieRating"  

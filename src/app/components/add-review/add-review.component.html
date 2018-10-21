@@ -1,4 +1,5 @@
 <p>
-  <app-review-form></app-review-form>
+  <app-movie-selection (movieSelectedEvent)=selectMovie($event)></app-movie-selection>
+  <app-review-form [movie]="selectedMovie"></app-review-form>
   <button  routerLink="/"  mat-raised-button color="secondary">Back To Review List</button>
 </p>

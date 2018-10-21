@@ -12,7 +12,7 @@ import { UserService } from '../../providers/user.service';
   styleUrls: ['./review-form.component.scss']
 })
 export class ReviewFormComponent implements OnInit {
-  @Input() movie: IMovie = {id: 1, name: 'Test Movie'};
+  @Input() movie: IMovie;
   user: string;
   message = '';
   movieRating = 4;
@@ -26,7 +26,7 @@ export class ReviewFormComponent implements OnInit {
     this.user = this.userService.userName;
   }
   sendMessage() {
-    const review: Review = new Review(this.user, this.movieRating, this.movie.id, this.message, this.movie.name);
+    const review: Review = new Review(this.user, this.movieRating, this.movie.Id, this.message, this.movie.OriginalTitle);
     this.peer2peerService.addReview(review).subscribe(() => {
       this.blockchainService.parseReviewsFromBlockChain();
       this.router.navigate(['/']);

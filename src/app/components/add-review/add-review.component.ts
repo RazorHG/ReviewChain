@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { IMovie } from '../../models/movie.model';
 
 @Component({
   selector: 'app-add-review',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-review.component.scss']
 })
 export class AddReviewComponent implements OnInit {
-
-  constructor() { }
+  selectedMovie: IMovie;
+  constructor(private cref: ChangeDetectorRef) { }
 
   ngOnInit() {
   }
-
+  selectMovie(movie: IMovie) {
+    this.selectedMovie = movie;
+    this.cref.detectChanges();
+  }
 }
